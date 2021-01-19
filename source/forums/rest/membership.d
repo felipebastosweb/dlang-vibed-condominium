@@ -1,0 +1,2 @@
+module forums.rest.membership;
+

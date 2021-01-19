@@ -2,12 +2,14 @@ module forums.domain.membership;
 
 import std.datetime.date : DateTime;
 
-struct MemberShip {
+/// Data of member of forum
+struct ForumMemberShip
+{
 
-    Forum forum;
-    User user;
-    ForumRole role;
-    DateTime created_at;
-    DateTime updated_at;
+    Forum forum; /// forum
+    User user; /// the user
+    ForumRole role; /// the role
+    DateTime createdAt; /// datetime
+    DateTime updatedAt; ///datetime
 
 }
