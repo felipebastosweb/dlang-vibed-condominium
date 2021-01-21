@@ -1,16 +1,31 @@
+package meetups.domains.meetup;
 
+import acccounts.domains.user : User;
 
-+++
-class Meeutup(models.Model):
-    title = models.TextField()
-    description = models.TextField()
-    day = models.DateTimeField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+import std.datetime : DateTime;
 
-class Minute(models.Model):
-    meetup = models.ForeignKey(Meetup, on_delete=models.CASCADE)
-    description = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-+++
+struct Meetup {
+    int id;
+    User owner;
+    string title;
+    string slug;
+    string description;
+    DateTime createdAt;
+    DateTime updatedAt;
+    MeetupMinute[] minutes;
+}
+
+struct MeetupMembership {
+    int id;
+    Meetup meetup;
+    User user;
+}
+
+struct MeetupMinute {
+    int id;
+    User owner;
+    Meetup meetup;
+    string description;
+    DateTime createdAt;
+    DateTime updatedAt;
+}
